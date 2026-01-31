@@ -1,0 +1,10 @@
+@import "./vars/colors";
+
+body {
+  min-height: 100vh;
+  color: $color-fg;
+  background-color: $color-bg;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
