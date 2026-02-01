@@ -1,12 +1,5 @@
 @use "./vars/colors";
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body {
   min-height: 100vh;
   color: colors.$fg;
@@ -14,4 +7,22 @@ body {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

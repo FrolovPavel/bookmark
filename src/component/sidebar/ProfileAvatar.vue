@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { useProfileStore } from '@/stors/profile.store';
-import { onMounted } from 'vue';
+import type { Profile } from '@/interfaces/profile.interface';
 
-const store = useProfileStore();
-
-onMounted(() => {
-  store.setProfile()
-})
+const { profile } = defineProps<{
+  profile: Profile
+}>()
 </script>
 
 <template>
@@ -18,7 +15,7 @@ onMounted(() => {
     />
     <div class="avatar__welcome">
       Привет,
-      <b>{{ store.profile?.name }}</b>
+      <b>{{ profile?.name }}</b>
       !
     </div>
   </div>
