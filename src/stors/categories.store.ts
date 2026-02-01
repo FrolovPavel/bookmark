@@ -4,20 +4,20 @@ import categoriesApi from '../api/categoriesApi';
 import type { Categories } from '../interfaces/categories.interface';
 
 export const useCategoriesStore = defineStore('categories', () => {
-  const categories = ref<Categories[]>();
+  const categories = ref<Categories[]>([]);
 
   async function setCategories() {
     const { data } = await categoriesApi.getCategories();
     categories.value = data;
   }
 
-  async function onCreateCategories() {
+  async function addCategories() {
     const { data } = await categoriesApi.createCategories({
-      name: 'Новая категория',
-      alias: 'new'
+      name: 'Новая категория1',
+      alias: 'new1'
     });
-    categories.value = data;
+    categories.value.push(data);
   }
 
-  return { categories, setCategories, onCreateCategories };
+  return { categories, setCategories, addCategories };
 });

@@ -28,7 +28,7 @@ onMounted(() => {
     />
     <ButtonBase
       size="small"
-      @click="storeCategories.onCreateCategories"
+      @click="storeCategories.addCategories"
     >
       <IconPlus />
     </ButtonBase>
