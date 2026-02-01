@@ -1,9 +1,16 @@
-@import "./vars/colors";
+@use "./vars/colors";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
   min-height: 100vh;
-  color: $color-fg;
-  background-color: $color-bg;
+  color: colors.$fg;
+  background-color: colors.$bg;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 400;
