@@ -5,7 +5,7 @@ import { onMounted } from 'vue';
 const store = useProfileStore();
 
 onMounted(() => {
-  store.fetchProfile()
+  store.setProfile()
 })
 </script>
 
@@ -18,7 +18,7 @@ onMounted(() => {
     />
     <div class="avatar__welcome">
       Привет,
-      <b>{{ store.profile.name }}</b>
+      <b>{{ store.profile?.name }}</b>
       !
     </div>
   </div>
