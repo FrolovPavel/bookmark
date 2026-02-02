@@ -40,6 +40,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex-shrink: 0;
   gap: 40px;
 }
 </style>
