@@ -6,10 +6,10 @@ import type { Profile } from '@/interfaces/profile.interface';
 export const useProfileStore = defineStore('profile', () => {
   const profile = ref<Profile>();
 
-  async function setProfile() {
-    const { data } = await profileApi.getProfile()
+  async function getProfile() {
+    const { data } = await profileApi.fetchProfile()
     profile.value = data;
   }
 
-  return { profile, setProfile };
+  return { profile, getProfile };
 });

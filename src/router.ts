@@ -8,8 +8,18 @@ export const router = createRouter({
     },
     {
       path: '/main',
-      name: 'main',
-      component: () => import('./views/MainView.vue')
+      component: () => import('./views/MainView.vue'),
+      children: [
+        {
+          path: '',
+          name: 'main',
+          component: () => import('./views/WelcomeView.vue'),
+        },
+        {
+          path: ':alias',
+          component: () => import('./views/CategoryView.vue'),
+        }
+      ]
     }
   ],
   history: createWebHistory(),

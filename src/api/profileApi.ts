@@ -1,9 +1,9 @@
 import axios from './axios';
 
-const getProfile = async () => {
+const fetchProfile = async () => {
   return await axios.get('profile');
 }
 
 export default {
-  getProfile
+  fetchProfile
 }

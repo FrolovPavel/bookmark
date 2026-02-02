@@ -3,7 +3,7 @@ import ProfileAvatar from '@/component/sidebar/ProfileAvatar.vue';
 import CategoriesList from '@/component/sidebar/CategoriesList.vue';
 import ButtonBase from '@/component/ui/ButtonBase.vue';
 import IconPlus from '@/component/icons/IconPlus.vue';
-import { useCategoriesStore } from '@/stors/categories.store';
+import { useCategoriesStore } from '@/stors/category.store';
 import { useProfileStore } from '@/stors/profile.store';
 import { onMounted } from 'vue';
 
@@ -11,8 +11,8 @@ const storeProfile = useProfileStore();
 const storeCategories = useCategoriesStore();
 
 onMounted(() => {
-  storeCategories.setCategories()
-  storeProfile.setProfile()
+  storeCategories.getCategories()
+  storeProfile.getProfile()
 })
 </script>
 

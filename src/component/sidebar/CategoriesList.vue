@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Categories } from '@/interfaces/categories.interface';
+import type { Category } from '@/interfaces/categories.interface';
 
 const { categories } = defineProps<{
-  categories: Categories[];
+  categories: Category[];
 }>();
 </script>
 
@@ -16,7 +16,7 @@ const { categories } = defineProps<{
       >
         <RouterLink
           class="categories__link"
-          :to="`/${category.alias}`"
+          :to="`/main/${category.alias}`"
         >
           {{ category.name }}
         </RouterLink>
