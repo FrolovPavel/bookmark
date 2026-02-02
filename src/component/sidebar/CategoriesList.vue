@@ -16,6 +16,7 @@ const { categories } = defineProps<{
       >
         <RouterLink
           class="categories__link"
+          active-class="active"
           :to="`/main/${category.alias}`"
         >
           {{ category.name }}
@@ -36,9 +37,14 @@ const { categories } = defineProps<{
   &__link {
     transition: color 0.3s;
 
-    &:hover {
+    &.active {
+      font-weight: 700;
+    }
+
+    &:not(.active):hover {
       color: colors.$inactive;
     }
+
   }
 }
 </style>

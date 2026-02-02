@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { watch } from 'vue';
 import { useCategoriesStore } from '@/stors/categories.store';
 import type { Category } from '@/interfaces/categories.interface';
@@ -22,6 +22,7 @@ watch(
       bookmarksStore.getBookmarks(category.value.id);
     }
   },
+  { immediate: true }
 );
 </script>
 
