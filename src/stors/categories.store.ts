@@ -12,20 +12,33 @@ export const useCategoriesStore = defineStore('categories', () => {
     categories.value = data;
   }
 
-  function getCategoryByAlies(alies: string | string[] | undefined): Category | undefined{
-    if(typeof alies === 'string') {
-      return categories.value.find((category) => category.alias === alies)
+  function getCategoryByAlies(alies: string | string[] | undefined): Category | undefined {
+    if (typeof alies === 'string') {
+      return categories.value.find((category) => category.alias === alies);
     }
-    return
+    return;
   }
 
-  async function addCategories() {
-    const { data } = await categoriesApi.createCategories({
-      name: 'Новая категория1',
+  async function addCategory() {
+    const { data } = await categoriesApi.createCategory({
+      name: 'Новая категория',
       alias: uuidv4(),
     });
     categories.value.push(data);
   }
 
-  return { categories, getCategories, addCategories, getCategoryByAlies };
+  async function editCategory(name: string, category: Category) {
+    await categoriesApi.updateCategory(category.id, {
+      name: name,
+      alias: category.alias,
+    });
+    await getCategories();
+  }
+
+  async function removeCategory(id: number) {
+    await categoriesApi.deleteCategory(id);
+    await getCategories();
+  }
+
+  return { categories, getCategories, addCategory, getCategoryByAlies, editCategory, removeCategory };
 });

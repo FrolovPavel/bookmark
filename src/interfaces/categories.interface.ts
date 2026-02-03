@@ -4,3 +4,8 @@ export interface Category {
   "alias": string,
   "bookmarks": null
 }
+
+export interface CategorySend {
+  "name": string,
+  "alias": string,
+}

@@ -37,11 +37,16 @@ const { categories } = defineProps<{
     display: flex;
     flex-direction: column;
     gap: 34px;
-    max-height: 35vh;
-    overflow: auto;
+    height: 35vh;
+    overflow-y: auto;
   }
 
   &__link {
+    display: inline-block;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: color 0.3s;
 
     &.active {

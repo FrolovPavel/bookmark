@@ -11,7 +11,7 @@
 <style scoped lang="scss">
 .layout-sidebar {
   display: flex;
-  gap: 200px;
+  gap: 32px;
   margin: 0 auto;
   padding: 80px 32px 0;
   width: 100%;

@@ -30,7 +30,7 @@ onMounted(() => {
     <ButtonBase
       size="big"
       type="text"
-      @click="storeCategories.addCategories"
+      @click="storeCategories.addCategory"
     >
       Добавить
     </ButtonBase>
