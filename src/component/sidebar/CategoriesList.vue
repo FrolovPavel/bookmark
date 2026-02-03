@@ -28,10 +28,17 @@ const { categories } = defineProps<{
 
 <style scoped lang="scss">
 .categories {
+  padding-bottom: 16px;
+  padding-top: 16px;
+  border-bottom: 1px solid colors.$inactive;
+  border-top: 1px solid colors.$inactive;
+
   &__list {
     display: flex;
     flex-direction: column;
     gap: 34px;
+    max-height: 35vh;
+    overflow: auto;
   }
 
   &__link {

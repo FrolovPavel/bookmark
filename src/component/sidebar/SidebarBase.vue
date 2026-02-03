@@ -2,18 +2,19 @@
 import ProfileAvatar from '@/component/sidebar/ProfileAvatar.vue';
 import CategoriesList from '@/component/sidebar/CategoriesList.vue';
 import ButtonBase from '@/component/ui/ButtonBase.vue';
-import IconPlus from '@/component/icons/IconPlus.vue';
 import { useCategoriesStore } from '@/stors/categories.store';
 import { useProfileStore } from '@/stors/profile.store';
 import { onMounted } from 'vue';
+import { useAuthStore } from '@/stors/auth.store';
 
 const storeProfile = useProfileStore();
 const storeCategories = useCategoriesStore();
+const storeAuth = useAuthStore();
 
 onMounted(() => {
-  storeCategories.getCategories()
-  storeProfile.getProfile()
-})
+  storeCategories.getCategories();
+  storeProfile.getProfile();
+});
 </script>
 
 <template>
@@ -27,10 +28,18 @@ onMounted(() => {
       :categories="storeCategories.categories"
     />
     <ButtonBase
-      size="small"
+      size="big"
+      type="text"
       @click="storeCategories.addCategories"
     >
-      <IconPlus />
+      Добавить
+    </ButtonBase>
+    <ButtonBase
+      size="big"
+      type="text"
+      @click="storeAuth.onLogout"
+    >
+      Выход
     </ButtonBase>
   </aside>
 </template>
@@ -39,8 +48,7 @@ onMounted(() => {
 .sidebar {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   flex-shrink: 0;
-  gap: 40px;
+  gap: 16px;
 }
 </style>

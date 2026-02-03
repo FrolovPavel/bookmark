@@ -29,3 +29,11 @@ export const router = createRouter({
   ],
   history: createWebHistory(),
 });
+
+router.beforeEach((to) => {
+  const token = localStorage.getItem('authToken');
+
+  if(!token && to.name !== 'auth') {
+    return { name: 'auth' };
+  }
+})
