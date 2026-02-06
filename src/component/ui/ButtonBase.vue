@@ -2,11 +2,12 @@
 const { size = 'big', type = 'default' } = defineProps<{
   size?: 'small' | 'big';
   type?: 'default' | 'text';
+  border?: boolean;
 }>();
 </script>
 
 <template>
-  <button :class="['btn', `btn--${size}`, `btn--${type}`]">
+  <button :class="['btn', `btn--${size}`, `btn--${type}`, { border }]">
     <slot />
   </button>
 </template>
@@ -24,6 +25,10 @@ const { size = 'big', type = 'default' } = defineProps<{
   color: colors.$bg;
   font-size: 18px;
   font-weight: 700;
+
+  &.border {
+    border: 3px solid colors.$bg;
+  }
 
   &:hover {
     background-color: color.scale(colors.$fg, $lightness: 30%);

@@ -85,6 +85,7 @@ function onRemoveCategory() {
 .head {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 60px;
 
   &__input {
     display: flex;

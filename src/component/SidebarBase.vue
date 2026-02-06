@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ProfileAvatar from '@/component/sidebar/ProfileAvatar.vue';
-import CategoriesList from '@/component/sidebar/CategoriesList.vue';
+import ProfileAvatar from '@/component/ProfileAvatar.vue';
+import CategoriesList from '@/component/CategoriesList.vue';
 import ButtonBase from '@/component/ui/ButtonBase.vue';
 import { useCategoriesStore } from '@/stors/categories.store';
 import { useProfileStore } from '@/stors/profile.store';

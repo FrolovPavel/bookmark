@@ -11,5 +11,10 @@ export const useBookmarksStore = defineStore('bookmarks', () => {
     bookmarks.value = data;
   }
 
-  return { bookmarks, getBookmarks };
+  async function removeBookmark(categoryId: number, bookmarkId: number) {
+    await bookmarksApi.deleteBookmark(bookmarkId);
+    await getBookmarks(categoryId);
+  }
+
+  return { bookmarks, getBookmarks, removeBookmark };
 });
