@@ -4,13 +4,22 @@ import type { Bookmark } from '@/interfaces/bookmark.interface';
 import ButtonBase from '@/component/ui/ButtonBase.vue';
 import IconLink from '@/component/icons/IconLink.vue';
 import { useBookmarksStore } from '@/stors/bookmarks.store';
+import { ref } from 'vue';
+import PopupConfirm from '@/component/PopupConfirm.vue';
 
 const { image, title, url, category_id, id } = defineProps<Bookmark>();
 
 const store = useBookmarksStore();
 
+const isOpenPopup = ref(false);
+
 function openLink() {
   window.open(url, '_blank');
+}
+
+function confirmRemove() {
+  store.removeBookmark(category_id, id)
+  isOpenPopup.value = false
 }
 </script>
 
@@ -27,7 +36,7 @@ function openLink() {
     <div class="card-bookmark__actions">
       <ButtonBase
         border
-        @click="store.removeBookmark(category_id, id)"
+        @click="isOpenPopup = true"
       >
         <IconTrash />
       </ButtonBase>
@@ -38,6 +47,13 @@ function openLink() {
         <IconLink />
       </ButtonBase>
     </div>
+    <PopupConfirm
+      :isOpen="isOpenPopup"
+      text="Хотите удалить закладку?"
+      @cancel="isOpenPopup = false"
+      @ok="confirmRemove"
+    />
+
   </article>
 </template>
 

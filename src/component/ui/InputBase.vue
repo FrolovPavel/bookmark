@@ -15,5 +15,6 @@ const data = defineModel<string>();
   border: none;
   border-bottom: 1px solid colors.$fg;
   outline: none;
+  width: 100%;
 }
 </style>
